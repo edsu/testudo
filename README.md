@@ -1,8 +1,9 @@
-testudo.py collects class information from the publicly available [University of
-Maryland Schedule of Classes]. It includes information such as the title of the
-class, the size of the class, enrollment, the time and location of the class,
-and the name of the instructor. This repository only makes the code for
-assembling the data available. Please email edsu@umd.edu with any questions.
+**testudo.py** collects class information from the publicly available
+[University of Maryland Schedule of Classes]. It includes information such as
+the title of the class, the size of the class, enrollment, the time and location
+of the class, and the name of the instructor. This repository only makes the
+code for assembling the data available. Please email edsu@umd.edu with any
+questions.
 
 ```
 git clone https://github.com/edsu/testudo.git
@@ -15,9 +16,9 @@ After it finishes you should find a populated directory structure like this:
 
     data/{term}/{dept}/{class}.json
 
-For convenience the `json2csv.py` program will read in all the JSON files and
-write out one long CSV file, which is saved in `data/courses.csv`. Each
-course JSON file will look something like this:
+For convenience the included **json2csv.py** program will read in all the JSON
+files and write out one long CSV file, which is saved in `data/courses.csv`.
+Each course JSON file will look something like this:
 
 ```javascript
 {
