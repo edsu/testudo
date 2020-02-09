@@ -1,3 +1,5 @@
+# testudo
+
 **testudo.py** collects class information from the publicly available
 [University of Maryland Schedule of Classes]. It includes information such as
 the title of the class, the size of the class, enrollment, the time and location
