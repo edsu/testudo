@@ -26,7 +26,7 @@ for dirpath, dirnames, filenames in os.walk('./data'):
             continue
         course = json.load(open(dirpath + '/' + filename))
         print(course['id'])
-        profs = '; '.join([s['instructor'] for s in course['sections']])
+        profs = '; '.join(set([s['instructor'] for s in course['sections']]))
         seats = sum([s['seats'] for s in course['sections']])
         output.writerow([
             course['id'],
