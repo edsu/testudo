@@ -20,14 +20,21 @@ output.writerow([
     'seats'
 ])
 
-for dirpath, dirnames, filenames in os.walk('./data'):
+for dirpath, dirnames, filenames in os.walk('./data/'):
     for filename in filenames:
         if not filename.endswith('.json'):
             continue
+
         course = json.load(open(dirpath + '/' + filename))
-        print(course['id'])
-        profs = '; '.join(set([s['instructor'] for s in course['sections']]))
+
+        # collect the instructors in all sections
+        instructors = set()
+        for section in course['sections']:
+            instructors.update(section['instructors'])
+
+        profs = '; '.join(instructors)
         seats = sum([s['seats'] for s in course['sections']])
+
         output.writerow([
             course['id'],
             course['title'],
@@ -37,4 +44,6 @@ for dirpath, dirnames, filenames in os.walk('./data'):
             profs,
             seats,
         ])
+
+        print(course['id'])
 

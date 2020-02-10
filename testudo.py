@@ -46,6 +46,7 @@ def get_departments():
 
 def get_courses(dept, term):
     url = 'https://app.testudo.umd.edu/soc/%s/%s' % (term, dept['id'])
+    print('getting {}'.format(url))
     r = www.get(url)
     for div in r.html.find('.course'):
         yield get_course(dept, term, div)
@@ -75,7 +76,7 @@ def get_sections(course_id, term):
         for div in r.html.find('.section'):
             sections.append({
                 'id': t(div, '.section-id'),
-                'instructor': t(div, '.section-instructor'),
+                'instructors': [e.text for e in div.find('.section-instructor')],
                 'seats': int(t(div, '.total-seats-count').strip(',')),
                 'open-seats': int(t(div, '.open-seats-count').strip(',')),
                 'waitlist': int(t(div, '.waitlist-count')),

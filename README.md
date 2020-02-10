@@ -64,4 +64,10 @@ Each course JSON file will look something like this:
 }
 ```
 
+## Tests
+
+There are a few tests, but there should be more.
+
+    pytest 
+
 [University of Maryland Schedule of Classes]: https://app.testudo.umd.edu/soc/
