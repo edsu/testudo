@@ -6,22 +6,21 @@ def test_get_deptartments():
 
 def test_courses():
     dept = {"id": "MUSC", "name": "Music"}
-    courses = testudo.get_courses(dept, '201908')
+    courses = testudo.get_courses(dept, '202101')
     assert len(list(courses)) > 0
 
 def test_get_sections():
-    sections = testudo.get_sections('MUSC229K', '201908')
-    assert len(sections) > 0
-    s = sections[1]
-    assert s['id'] == 'FC01'
-    assert s['seats'] == 10
-    assert s['open-seats'] == 8
-    assert s['waitlist'] == 0
-    assert s['days'] == 'Su'
-    assert s['start'] == '7:00pm'
-    assert s['end'] == '9:30pm'
-    assert s['building'] == 'TBA'
-    assert s['room'] == ''
-    assert s['instructors'] == ['Ann Kennedy', 'Craig Potter', 'Andrea Brown']
-
+    sections = testudo.get_sections('MUSC103', '202101')
+    assert len(sections) == 3
+    s = sections[0]
+    assert s['id'] == '0101'
+    assert s['seats'] == 14
+    assert s['open-seats'] >= 0
+    assert s['waitlist'] >= 0
+    assert s['days'] == 'TuTh'
+    assert s['start'] == '11:00am'
+    assert s['end'] == '12:15pm'
+    assert s['building'] == ''
+    assert s['room'] == 'ONLINE'
+    assert s['instructors'] == ['Aleksandra Velgosha']
 
