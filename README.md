@@ -64,10 +64,14 @@ Each course JSON file will look something like this:
 }
 ```
 
+## Caveats
+
+The included data snapshot does not include the Spring term for 2019 because the crawling was not run in time.
+
 ## Tests
 
 There are a few tests, but there should be more.
 
-    pytest 
+    pytest test_testudo.py
 
 [University of Maryland Schedule of Classes]: https://app.testudo.umd.edu/soc/
